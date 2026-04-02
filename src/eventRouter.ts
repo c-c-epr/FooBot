@@ -22,5 +22,10 @@ export async function eventRouter(
       type: "text",
       text: `Event type: ${event.message.type}`,
     },
+    {
+      type: "image",
+      originalContentUrl: "https://s3.ccepr.dev/foo/IMG_2457.jpg",
+      previewImageUrl: "https://s3.ccepr.dev/foo/IMG_2457.jpg",
+    },
   ]);
 }

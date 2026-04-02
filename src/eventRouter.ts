@@ -16,7 +16,11 @@ export async function eventRouter(
   await sendMessage(channelAccessToken, event.replyToken, [
     {
       type: "text",
-      text: "Hello from Cloudflare Workers!",
+      text: "Meow!",
+    },
+    {
+      type: "text",
+      text: `Event type: ${event.message.type}`,
     },
   ]);
 }

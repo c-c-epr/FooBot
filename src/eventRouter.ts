@@ -7,27 +7,27 @@ export async function eventRouter(
   ctx: ExecutionContext,
 ) {
   // 在日誌輸出事件類型和內容
-  if (["message"].includes(event.type)) {
-    console.log(`Received event - ${event.type}(${event.message.type})`, {
-      event,
-    });
-  } else {
-    try {
-      console.log(`Received event - ${event.type}`, { event });
-    } catch (e) {
-      console.error("Failed to log event", { error: e, event });
-      console.error("event", { event });
+  let eventType: string = event.type;
+  try {
+    if (["message"].includes(event.type)) {
+      eventType = `${event.type}(${event.message?.type})`;
     }
+  } catch (e) {
+    console.error("Failed to determine message event type", { error: e });
   }
 
+  console.log(`Received event - ${eventType}`, { event });
+
+  //已讀
   if (event.type === "message" && event.message?.markAsReadToken) {
     ctx.waitUntil(
       markAsRead(channelAccessToken, event.message.markAsReadToken),
     );
   }
+  // 載入動畫
   await Promise.race([
     loadStart(channelAccessToken, event.source.userId, 5),
-    new Promise((resolve) => setTimeout(resolve, 50)), // 最多等 50ms
+    new Promise((resolve) => setTimeout(resolve, 50)),
   ]);
 
   if (event.message.type === "text" && event.message.text === "🎲") {

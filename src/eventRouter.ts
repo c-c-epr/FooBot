@@ -6,6 +6,7 @@ export async function eventRouter(
   channelAccessToken: string,
   ctx: ExecutionContext,
 ) {
+  // 在日誌輸出事件類型和內容
   if (["message"].includes(event.type)) {
     console.log(`Received event - ${event.type}(${event.message.type})`, {
       event,
@@ -19,8 +20,11 @@ export async function eventRouter(
     }
   }
 
-  ctx.waitUntil(markAsRead(channelAccessToken, event.message.markAsReadToken));
-
+  if (event.type === "message" && event.message?.markAsReadToken) {
+    ctx.waitUntil(
+      markAsRead(channelAccessToken, event.message.markAsReadToken),
+    );
+  }
   await Promise.race([
     loadStart(channelAccessToken, event.source.userId, 5),
     new Promise((resolve) => setTimeout(resolve, 50)), // 最多等 50ms

@@ -24,6 +24,13 @@ export async function eventRouter(
           "https://s3.ccepr.dev/foo/2025-08-19%2021-35-17%20(2).jpg",
       },
     ]);
+  } else if (event.message.type === "text" && event.message.text === "meow") {
+    await sendMessage(channelAccessToken, event.replyToken, [
+      {
+        type: "text",
+        text: "Meow!",
+      },
+    ]);
   } else {
     await sendMessage(channelAccessToken, event.replyToken, [
       {

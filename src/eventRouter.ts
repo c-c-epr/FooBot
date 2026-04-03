@@ -7,7 +7,7 @@ export async function eventRouter(
   ctx: ExecutionContext,
 ) {
   try {
-    console.log(`Received event - ${event.message.type}`, { event });
+    console.log(`Received event - ${event.type}`, { event });
   } catch (e) {
     console.error("Failed to log event", { error: e, event });
     console.error("event", { event });

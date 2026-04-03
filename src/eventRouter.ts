@@ -18,17 +18,29 @@ export async function eventRouter(
 
   console.log(`Received event - ${eventType}`, { event });
 
-  //已讀
-  if (event.type === "message" && event.message?.markAsReadToken) {
-    ctx.waitUntil(
-      markAsRead(channelAccessToken, event.message.markAsReadToken),
-    );
+  switch (event.type) {
+    case "message":
+      // 已讀
+      ctx.waitUntil(
+        markAsRead(channelAccessToken, event.message.markAsReadToken),
+      );
+      // 載入動畫
+      await Promise.race([
+        loadStart(channelAccessToken, event.source.userId, 5),
+        new Promise((resolve) => setTimeout(resolve, 50)),
+      ]);
+    case "follow":
+      await sendMessage(channelAccessToken, event.replyToken, [
+        {
+          type: "text",
+          text: `!歡迎訊息`,
+        },
+      ]);
+    case "unfollow":
+      return;
+    default:
+      console.warn(`Unhandled event type: ${event.type}`);
   }
-  // 載入動畫
-  await Promise.race([
-    loadStart(channelAccessToken, event.source.userId, 5),
-    new Promise((resolve) => setTimeout(resolve, 50)),
-  ]);
 
   if (event.message.type === "text" && event.message.text === "🎲") {
     const imageList = [

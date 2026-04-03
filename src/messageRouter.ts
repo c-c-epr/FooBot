@@ -31,6 +31,7 @@ export default async function messageRouter(
               previewImageUrl: selectedImage,
             },
           ]);
+          break;
         default:
           console.warn(`Unhandled message text: ${event.message.text}`);
       }

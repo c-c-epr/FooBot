@@ -30,7 +30,7 @@ export async function eventRouter(
         loadStart(channelAccessToken, event.source.userId, 5),
         new Promise((resolve) => setTimeout(resolve, 50)),
       ]);
-      messageRouter(event, channelAccessToken, ctx);
+      await messageRouter(event, channelAccessToken, ctx);
       break;
     case "follow":
       await sendMessage(channelAccessToken, event.replyToken, [

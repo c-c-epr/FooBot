@@ -6,7 +6,7 @@ export async function eventRouter(
   channelAccessToken: string,
   ctx: ExecutionContext,
 ) {
-  if (event.type in ["message"]) {
+  if (["message"].includes(event.type)) {
     console.log(`Received event - ${event.type}(${event.message.type})`, {
       event,
     });

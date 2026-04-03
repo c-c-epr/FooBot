@@ -35,7 +35,7 @@ export default async function messageRouter(
         default:
           console.warn(`Unhandled message text: ${event.message.text}`);
       }
-
+      break;
     default:
       console.warn(`Unhandled message type: ${event.message.type}`);
   }

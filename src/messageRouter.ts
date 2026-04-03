@@ -84,6 +84,11 @@ export default async function messageRouter(
                           aspectMode: "cover",
                           size: "full",
                           backgroundColor: "#eaffea",
+                          action: {
+                            type: "postback",
+                            label: "action",
+                            data: "1",
+                          },
                         },
                         {
                           type: "image",

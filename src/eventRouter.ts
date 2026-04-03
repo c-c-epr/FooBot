@@ -29,6 +29,7 @@ export async function eventRouter(
         loadStart(channelAccessToken, event.source.userId, 5),
         new Promise((resolve) => setTimeout(resolve, 50)),
       ]);
+      break;
     case "follow":
       await sendMessage(channelAccessToken, event.replyToken, [
         {
@@ -36,8 +37,9 @@ export async function eventRouter(
           text: `!歡迎訊息`,
         },
       ]);
+      break;
     case "unfollow":
-      return;
+      break;
     default:
       console.warn(`Unhandled event type: ${event.type}`);
   }

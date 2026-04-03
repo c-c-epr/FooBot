@@ -88,6 +88,7 @@ export default async function messageRouter(
                             type: "postback",
                             label: "action",
                             data: "1",
+                            displayText: "A",
                           },
                         },
                         {

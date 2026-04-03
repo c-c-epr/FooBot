@@ -6,7 +6,7 @@ export async function eventRouter(
   channelAccessToken: string,
   ctx: ExecutionContext,
 ) {
-  console.log("Received event", { event });
+  console.log(`Received event - ${event.message.type}`, { event });
   ctx.waitUntil(markAsRead(channelAccessToken, event.message.markAsReadToken));
 
   await Promise.race([

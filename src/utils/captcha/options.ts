@@ -7,4 +7,10 @@ export const captchaOptions: captchaOption[] = [
     description: "小福躺在輔導室前",
     author: "未知",
   },
+  {
+    imageUrl: "https://s3.ccepr.dev/foo/IMG_2457.jpg",
+    isLittleFoo: true,
+    description: "小福躺在暖氣機前",
+    author: "Eric",
+  },
 ];

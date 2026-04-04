@@ -1,4 +1,5 @@
 import { CaptchaOptions9, captchaOption } from "./type";
+import { captchaOptions } from "./options";
 
 export function captchaFlexContentOption(options: captchaOption) {
   return {
@@ -58,9 +59,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption,
-            captchaFlexContentOption,
-            captchaFlexContentOption,
+            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[0]),
           ],
           margin: "lg",
           spacing: "lg",
@@ -69,9 +70,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption,
-            captchaFlexContentOption,
-            captchaFlexContentOption,
+            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[0]),
           ],
           margin: "lg",
           spacing: "lg",
@@ -80,9 +81,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption,
-            captchaFlexContentOption,
-            captchaFlexContentOption,
+            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[0]),
           ],
           margin: "lg",
           spacing: "lg",

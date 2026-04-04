@@ -60,18 +60,7 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           layout: "horizontal",
           contents: [
             captchaFlexContentOption(captchaOptions[0]),
-            captchaFlexContentOption(captchaOptions[0]),
-            captchaFlexContentOption(captchaOptions[0]),
-          ],
-          margin: "lg",
-          spacing: "lg",
-        },
-        {
-          type: "box",
-          layout: "horizontal",
-          contents: [
-            captchaFlexContentOption(captchaOptions[0]),
-            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[1]),
             captchaFlexContentOption(captchaOptions[0]),
           ],
           margin: "lg",
@@ -81,8 +70,19 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
+            captchaFlexContentOption(captchaOptions[1]),
             captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[1]),
+          ],
+          margin: "lg",
+          spacing: "lg",
+        },
+        {
+          type: "box",
+          layout: "horizontal",
+          contents: [
             captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(captchaOptions[1]),
             captchaFlexContentOption(captchaOptions[0]),
           ],
           margin: "lg",

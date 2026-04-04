@@ -1,6 +1,23 @@
-import { CaptchaOptions9 } from "./type";
+import { CaptchaOptions9, captchaOption } from "./type";
 
-export default function captchaFlexContents(options: CaptchaOptions9) {
+export function captchaFlexContentOption(options: captchaOption) {
+  return {
+    type: "image",
+    url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+    aspectRatio: "1:1",
+    aspectMode: "cover",
+    size: "full",
+    backgroundColor: "#eaffea",
+    action: {
+      type: "postback",
+      label: "action",
+      data: "1",
+      displayText: "A",
+    },
+  };
+}
+
+export function captchaFlexContents(options: CaptchaOptions9) {
   return {
     type: "bubble",
     header: {
@@ -41,34 +58,9 @@ export default function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              aspectMode: "cover",
-              size: "full",
-              backgroundColor: "#eaffea",
-              action: {
-                type: "postback",
-                label: "action",
-                data: "1",
-                displayText: "A",
-              },
-            },
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              size: "full",
-              aspectMode: "cover",
-            },
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              aspectMode: "cover",
-              size: "full",
-            },
+            captchaFlexContentOption,
+            captchaFlexContentOption,
+            captchaFlexContentOption,
           ],
           margin: "lg",
           spacing: "lg",
@@ -77,27 +69,9 @@ export default function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              aspectMode: "cover",
-              size: "full",
-            },
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              size: "full",
-              aspectMode: "cover",
-            },
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              aspectMode: "cover",
-              size: "full",
-            },
+            captchaFlexContentOption,
+            captchaFlexContentOption,
+            captchaFlexContentOption,
           ],
           margin: "lg",
           spacing: "lg",
@@ -106,27 +80,9 @@ export default function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              aspectMode: "cover",
-              size: "full",
-            },
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              size: "full",
-              aspectMode: "cover",
-            },
-            {
-              type: "image",
-              url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-              aspectRatio: "1:1",
-              aspectMode: "cover",
-              size: "full",
-            },
+            captchaFlexContentOption,
+            captchaFlexContentOption,
+            captchaFlexContentOption,
           ],
           margin: "lg",
           spacing: "lg",

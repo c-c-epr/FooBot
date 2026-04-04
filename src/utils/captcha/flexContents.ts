@@ -4,7 +4,7 @@ import { captchaOptions } from "./options";
 export function captchaFlexContentOption(options: captchaOption) {
   return {
     type: "image",
-    url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+    url: options.imageUrl,
     aspectRatio: "1:1",
     aspectMode: "cover",
     size: "full",

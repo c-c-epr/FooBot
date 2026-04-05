@@ -36,14 +36,16 @@ export default async function messageRouter(
           ]);
           break;
         case "CAPTCHA":
-          const Options: any = [
-            {
-              imageUrl:
-                "https://s3.ccepr.dev/foo/2025-08-19%2021-35-17%20(2).jpg",
-              isLittleFoo: true,
-              description: "小福躺在輔導室前",
-              author: "未知",
-            },
+          const Options: CaptchaOptions9 = [
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
           ];
           await sendMessage(channelAccessToken, event.replyToken, [
             {

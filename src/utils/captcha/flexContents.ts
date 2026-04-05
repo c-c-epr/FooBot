@@ -12,7 +12,7 @@ export function captchaFlexContentOption(options: captchaOption) {
     action: {
       type: "postback",
       label: "action",
-      data: "1",
+      data: "CAPTCHA_",
       displayText: "A",
     },
   };
@@ -59,9 +59,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption(captchaOptions[0]),
-            captchaFlexContentOption(captchaOptions[1]),
-            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(options[0]),
+            captchaFlexContentOption(options[1]),
+            captchaFlexContentOption(options[2]),
           ],
           margin: "lg",
           spacing: "lg",
@@ -70,9 +70,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption(captchaOptions[1]),
-            captchaFlexContentOption(captchaOptions[0]),
-            captchaFlexContentOption(captchaOptions[1]),
+            captchaFlexContentOption(options[3]),
+            captchaFlexContentOption(options[4]),
+            captchaFlexContentOption(options[5]),
           ],
           margin: "lg",
           spacing: "lg",
@@ -81,9 +81,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption(captchaOptions[0]),
-            captchaFlexContentOption(captchaOptions[1]),
-            captchaFlexContentOption(captchaOptions[0]),
+            captchaFlexContentOption(options[6]),
+            captchaFlexContentOption(options[7]),
+            captchaFlexContentOption(options[8]),
           ],
           margin: "lg",
           spacing: "lg",

@@ -43,6 +43,7 @@ export async function eventRouter(
           ]);
           break;
       }
+      break;
 
     case "follow":
       await sendMessage(channelAccessToken, event.replyToken, [

@@ -36,11 +36,7 @@ function bodyHelper(contents: any) {
   return {
     type: "box",
     layout: "horizontal",
-    contents: [
-          captchaFlexContentOption(captchaOptions[0], 0),
-          captchaFlexContentOption(captchaOptions[1], 1),
-          captchaFlexContentOption(captchaOptions[0], 2),
-        ],
+    contents: contents,
     margin: "lg",
     spacing: "lg",
   };
@@ -64,21 +60,39 @@ export function captchaFlexContents(options: CaptchaOptions9) {
       type: "box",
       layout: "vertical",
       contents: [
-        bodyHelper([
-          captchaFlexContentOption(options[0], 0),
-          captchaFlexContentOption(options[1], 1),
-          captchaFlexContentOption(options[2], 2),
-        ]),
-        bodyHelper([
-          captchaFlexContentOption(options[3], 3),
-          captchaFlexContentOption(options[4], 4),
-          captchaFlexContentOption(options[5], 5),
-        ]),
-        bodyHelper([
-          captchaFlexContentOption(options[6], 6),
-          captchaFlexContentOption(options[7], 7),
-          captchaFlexContentOption(options[8], 8),
-        ]),
+        {
+          type: "box",
+          layout: "horizontal",
+          contents: [
+            captchaFlexContentOption(options[0], 0),
+            captchaFlexContentOption(options[1], 1),
+            captchaFlexContentOption(options[2], 2),
+          ],
+          margin: "lg",
+          spacing: "lg",
+        },
+        {
+          type: "box",
+          layout: "horizontal",
+          contents: [
+            captchaFlexContentOption(options[3], 3),
+            captchaFlexContentOption(options[4], 4),
+            captchaFlexContentOption(options[5], 5),
+          ],
+          margin: "lg",
+          spacing: "lg",
+        },
+        {
+          type: "box",
+          layout: "horizontal",
+          contents: [
+            captchaFlexContentOption(options[6], 6),
+            captchaFlexContentOption(options[7], 7),
+            captchaFlexContentOption(options[8], 8),
+          ],
+          margin: "lg",
+          spacing: "lg",
+        },
       ],
     },
     styles: {

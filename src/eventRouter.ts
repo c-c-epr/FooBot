@@ -34,7 +34,7 @@ export async function eventRouter(
       break;
     case "postback":
       switch (event.postback.data.split("_")[0]) {
-        case "captcha":
+        case "CAPTCHA":
           await sendMessage(channelAccessToken, event.replyToken, [
             {
               type: "text",

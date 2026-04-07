@@ -21,6 +21,17 @@ export function captchaFlexContentOption(
   };
 }
 
+function headerMaker(str: string, bold: boolean = false) {
+  return {
+    type: "text",
+    text: str,
+    size: "sm",
+    color: "#ffffff",
+    gravity: "center",
+    weight: bold ? "bold" : "normal",
+  };
+}
+
 export function captchaFlexContents(options: CaptchaOptions9) {
   return {
     type: "bubble",
@@ -28,28 +39,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
       type: "box",
       layout: "vertical",
       contents: [
-        {
-          type: "text",
-          text: "請找出全部包含",
-          size: "sm",
-          color: "#ffffff",
-          gravity: "center",
-        },
-        {
-          type: "text",
-          text: "小福",
-          size: "3xl",
-          color: "#ffffff",
-          gravity: "center",
-          weight: "bold",
-        },
-        {
-          type: "text",
-          text: "的圖片",
-          size: "sm",
-          color: "#ffffff",
-          gravity: "center",
-        },
+        headerMaker("請找出全部包含"),
+        headerMaker("小福", true),
+        headerMaker("的圖片"),
       ],
       spacing: "none",
       margin: "none",

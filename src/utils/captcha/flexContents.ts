@@ -1,7 +1,10 @@
 import { CaptchaOptions9, captchaOption } from "./type";
 import { captchaOptions } from "./options";
 
-export function captchaFlexContentOption(options: captchaOption) {
+export function captchaFlexContentOption(
+  options: captchaOption,
+  num: number = 0,
+) {
   return {
     type: "image",
     url: options.imageUrl,
@@ -12,7 +15,7 @@ export function captchaFlexContentOption(options: captchaOption) {
     action: {
       type: "postback",
       label: "action",
-      data: "CAPTCHA_",
+      data: `CAPTCHA_${num}`,
       displayText: "A",
     },
   };
@@ -59,9 +62,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption(options[0]),
-            captchaFlexContentOption(options[1]),
-            captchaFlexContentOption(options[2]),
+            captchaFlexContentOption(options[0], 0),
+            captchaFlexContentOption(options[1], 1),
+            captchaFlexContentOption(options[2], 2),
           ],
           margin: "lg",
           spacing: "lg",
@@ -70,9 +73,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption(options[3]),
-            captchaFlexContentOption(options[4]),
-            captchaFlexContentOption(options[5]),
+            captchaFlexContentOption(options[3], 3),
+            captchaFlexContentOption(options[4], 4),
+            captchaFlexContentOption(options[5], 5),
           ],
           margin: "lg",
           spacing: "lg",
@@ -81,9 +84,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
           type: "box",
           layout: "horizontal",
           contents: [
-            captchaFlexContentOption(options[6]),
-            captchaFlexContentOption(options[7]),
-            captchaFlexContentOption(options[8]),
+            captchaFlexContentOption(options[6], 6),
+            captchaFlexContentOption(options[7], 7),
+            captchaFlexContentOption(options[8], 8),
           ],
           margin: "lg",
           spacing: "lg",

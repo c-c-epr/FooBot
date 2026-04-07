@@ -32,7 +32,7 @@ function headerHelper(str: string, bold: boolean = false) {
   };
 }
 
-function bodyHelper(contents: any[]) {
+function bodyHelper(contents: any) {
   return {
     type: "box",
     layout: "horizontal",
@@ -56,27 +56,27 @@ export function captchaFlexContents(options: CaptchaOptions9) {
       spacing: "none",
       margin: "none",
     },
-    body: {
-      type: "box",
-      layout: "vertical",
-      contents: [
-        bodyHelper([
-          captchaFlexContentOption(options[0], 0),
-          captchaFlexContentOption(options[1], 1),
-          captchaFlexContentOption(options[2], 2),
-        ]),
-        bodyHelper([
-          captchaFlexContentOption(options[3], 3),
-          captchaFlexContentOption(options[4], 4),
-          captchaFlexContentOption(options[5], 5),
-        ]),
-        bodyHelper([
-          captchaFlexContentOption(options[6], 6),
-          captchaFlexContentOption(options[7], 7),
-          captchaFlexContentOption(options[8], 8),
-        ]),
-      ],
-    },
+    // body: {
+    //   type: "box",
+    //   layout: "vertical",
+    //   contents: [
+    //     bodyHelper([
+    //       captchaFlexContentOption(options[0], 0),
+    //       captchaFlexContentOption(options[1], 1),
+    //       captchaFlexContentOption(options[2], 2),
+    //     ]),
+    //     bodyHelper([
+    //       captchaFlexContentOption(options[3], 3),
+    //       captchaFlexContentOption(options[4], 4),
+    //       captchaFlexContentOption(options[5], 5),
+    //     ]),
+    //     bodyHelper([
+    //       captchaFlexContentOption(options[6], 6),
+    //       captchaFlexContentOption(options[7], 7),
+    //       captchaFlexContentOption(options[8], 8),
+    //     ]),
+    //   ],
+    // },
     styles: {
       header: {
         backgroundColor: "#70abff",

@@ -36,11 +36,7 @@ function bodyHelper(contents: any) {
   return {
     type: "box",
     layout: "horizontal",
-    contents: [
-          captchaFlexContentOption(captchaOptions[0], 0),
-          captchaFlexContentOption(captchaOptions[1], 1),
-          captchaFlexContentOption(captchaOptions[0], 2),
-        ],
+    contents: contents,
     margin: "lg",
     spacing: "lg",
   };

@@ -77,7 +77,6 @@ export function captchaFlexContents(options: CaptchaOptions9) {
         ]),
       ],
     },
-    footer: {},
     styles: {
       header: {
         backgroundColor: "#70abff",

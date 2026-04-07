@@ -28,7 +28,7 @@ function headerHelper(str: string, bold: boolean = false) {
     size: "sm",
     color: "#ffffff",
     gravity: "center",
-    weight: bold ? "bold" : "normal",
+    weight: bold ? "bold" : "regular",
   };
 }
 

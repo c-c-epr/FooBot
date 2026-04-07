@@ -32,6 +32,14 @@ export async function eventRouter(
       ]);
       await messageRouter(event, channelAccessToken, ctx);
       break;
+    case "postback":
+      await sendMessage(channelAccessToken, event.replyToken, [
+        {
+          type: "text",
+          text: `!CAPTCHA 回傳資料: ${JSON.stringify(event.postback.data)}`,
+        },
+      ]);
+      break;
     case "follow":
       await sendMessage(channelAccessToken, event.replyToken, [
         {

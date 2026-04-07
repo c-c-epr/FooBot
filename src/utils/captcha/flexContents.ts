@@ -21,7 +21,7 @@ export function captchaFlexContentOption(
   };
 }
 
-function headerMaker(str: string, bold: boolean = false) {
+function headerHelper(str: string, bold: boolean = false) {
   return {
     type: "text",
     text: str,
@@ -32,6 +32,16 @@ function headerMaker(str: string, bold: boolean = false) {
   };
 }
 
+function bodyHelper(contents: any[]) {
+  return {
+    type: "box",
+    layout: "horizontal",
+    contents: contents,
+    margin: "lg",
+    spacing: "lg",
+  };
+}
+
 export function captchaFlexContents(options: CaptchaOptions9) {
   return {
     type: "bubble",
@@ -39,9 +49,9 @@ export function captchaFlexContents(options: CaptchaOptions9) {
       type: "box",
       layout: "vertical",
       contents: [
-        headerMaker("請找出全部包含"),
-        headerMaker("小福", true),
-        headerMaker("的圖片"),
+        headerHelper("請找出全部包含"),
+        headerHelper("小福", true),
+        headerHelper("的圖片"),
       ],
       spacing: "none",
       margin: "none",
@@ -50,41 +60,24 @@ export function captchaFlexContents(options: CaptchaOptions9) {
       type: "box",
       layout: "vertical",
       contents: [
-        {
-          type: "box",
-          layout: "horizontal",
-          contents: [
-            captchaFlexContentOption(options[0], 0),
-            captchaFlexContentOption(options[1], 1),
-            captchaFlexContentOption(options[2], 2),
-          ],
-          margin: "lg",
-          spacing: "lg",
-        },
-        {
-          type: "box",
-          layout: "horizontal",
-          contents: [
-            captchaFlexContentOption(options[3], 3),
-            captchaFlexContentOption(options[4], 4),
-            captchaFlexContentOption(options[5], 5),
-          ],
-          margin: "lg",
-          spacing: "lg",
-        },
-        {
-          type: "box",
-          layout: "horizontal",
-          contents: [
-            captchaFlexContentOption(options[6], 6),
-            captchaFlexContentOption(options[7], 7),
-            captchaFlexContentOption(options[8], 8),
-          ],
-          margin: "lg",
-          spacing: "lg",
-        },
+        bodyHelper([
+          captchaFlexContentOption(options[0], 0),
+          captchaFlexContentOption(options[1], 1),
+          captchaFlexContentOption(options[2], 2),
+        ]),
+        bodyHelper([
+          captchaFlexContentOption(options[3], 3),
+          captchaFlexContentOption(options[4], 4),
+          captchaFlexContentOption(options[5], 5),
+        ]),
+        bodyHelper([
+          captchaFlexContentOption(options[6], 6),
+          captchaFlexContentOption(options[7], 7),
+          captchaFlexContentOption(options[8], 8),
+        ]),
       ],
     },
+    footer: {},
     styles: {
       header: {
         backgroundColor: "#70abff",

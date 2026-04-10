@@ -1,6 +1,9 @@
 import type { ExecutionContext } from "@cloudflare/workers-types";
 import { sendMessage, markAsRead, loadStart } from "./utils/eventRoutes";
 import messageRouter from "./messageRouter";
+import { captchaFlexContents } from "./utils/captcha/flexContents";
+import { CaptchaOptions9 } from "./utils/captcha/type";
+import { captchaOptions } from "./utils/captcha/options";
 
 export async function eventRouter(
   event: any,
@@ -35,10 +38,26 @@ export async function eventRouter(
     case "postback":
       switch (event.postback.data.split("_")[0]) {
         case "CAPTCHA":
+          const Options: CaptchaOptions9 = [
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
+            captchaOptions[0],
+            captchaOptions[1],
+          ];
           await sendMessage(channelAccessToken, event.replyToken, [
             {
               type: "text",
               text: `!CAPTCHA 回傳資料: ${JSON.stringify(event.postback.data.split("_")[1])}`,
+            },
+            {
+              type: "flex",
+              altText: "請找出全部包含 小福 的圖片",
+              contents: captchaFlexContents(Options),
             },
           ]);
           break;

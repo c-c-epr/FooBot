@@ -1,5 +1,4 @@
 import { CaptchaOptions9, captchaOption } from "./type";
-import { captchaOptions } from "./options";
 
 export function captchaFlexContentOption(
   options: captchaOption,
@@ -42,7 +41,10 @@ function bodyHelper(contents: any) {
   };
 }
 
-export function captchaFlexContents(options: CaptchaOptions9) {
+export function captchaFlexContents(
+  options: CaptchaOptions9,
+  status = "000000000",
+) {
   return {
     type: "bubble",
     header: {

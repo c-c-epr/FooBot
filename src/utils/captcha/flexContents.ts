@@ -6,6 +6,9 @@ export function captchaFlexContentOption(
   status: "0" | "1" = "0",
   allStatus: string = "000000000",
 ) {
+  const flipped = String(1 - Number(allStatus[num]));
+  allStatus = allStatus.slice(0, num) + flipped + allStatus.slice(num + 1);
+
   return {
     type: "image",
     url: options.imageUrl,
@@ -16,7 +19,7 @@ export function captchaFlexContentOption(
     action: {
       type: "postback",
       label: "action",
-      data: `CAPTCHA_${num}`,
+      data: `CAPTCHA_${num}.${allStatus}`,
       displayText: "A",
     },
   };

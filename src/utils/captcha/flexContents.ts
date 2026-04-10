@@ -20,11 +20,11 @@ export function captchaFlexContentOption(
   };
 }
 
-function headerHelper(str: string, bold: boolean = false) {
+function headerHelper(str: string, bold: boolean = false, size: string = "sm") {
   return {
     type: "text",
     text: str,
-    size: "sm",
+    size: size,
     color: "#ffffff",
     gravity: "center",
     weight: bold ? "bold" : "regular",
@@ -52,7 +52,7 @@ export function captchaFlexContents(
       layout: "vertical",
       contents: [
         headerHelper("請找出全部包含"),
-        headerHelper("小福", true),
+        headerHelper("小福", true, "3xl"),
         headerHelper("的圖片"),
       ],
       spacing: "none",

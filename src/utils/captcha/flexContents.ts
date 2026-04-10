@@ -2,7 +2,9 @@ import { CaptchaOptions9, captchaOption } from "./type";
 
 export function captchaFlexContentOption(
   options: captchaOption,
-  num: number = 0,
+  num: number,
+  status: "0" | "1" = "0",
+  allStatus: string = "000000000",
 ) {
   return {
     type: "image",
@@ -63,19 +65,64 @@ export function captchaFlexContents(
       layout: "vertical",
       contents: [
         bodyHelper([
-          captchaFlexContentOption(options[0], 0),
-          captchaFlexContentOption(options[1], 1),
-          captchaFlexContentOption(options[2], 2),
+          captchaFlexContentOption(
+            options[0],
+            0,
+            status[0] as "0" | "1",
+            status,
+          ),
+          captchaFlexContentOption(
+            options[1],
+            1,
+            status[1] as "0" | "1",
+            status,
+          ),
+          captchaFlexContentOption(
+            options[2],
+            2,
+            status[2] as "0" | "1",
+            status,
+          ),
         ]),
         bodyHelper([
-          captchaFlexContentOption(options[3], 3),
-          captchaFlexContentOption(options[4], 4),
-          captchaFlexContentOption(options[5], 5),
+          captchaFlexContentOption(
+            options[3],
+            3,
+            status[3] as "0" | "1",
+            status,
+          ),
+          captchaFlexContentOption(
+            options[4],
+            4,
+            status[4] as "0" | "1",
+            status,
+          ),
+          captchaFlexContentOption(
+            options[5],
+            5,
+            status[5] as "0" | "1",
+            status,
+          ),
         ]),
         bodyHelper([
-          captchaFlexContentOption(options[6], 6),
-          captchaFlexContentOption(options[7], 7),
-          captchaFlexContentOption(options[8], 8),
+          captchaFlexContentOption(
+            options[6],
+            6,
+            status[6] as "0" | "1",
+            status,
+          ),
+          captchaFlexContentOption(
+            options[7],
+            7,
+            status[7] as "0" | "1",
+            status,
+          ),
+          captchaFlexContentOption(
+            options[8],
+            8,
+            status[8] as "0" | "1",
+            status,
+          ),
         ]),
       ],
     },

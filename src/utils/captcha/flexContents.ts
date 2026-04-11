@@ -15,18 +15,25 @@ export function captchaFlexContentOption(
     layout: "horizontal",
     contents: [
       {
-        type: "image",
-        url: options.imageUrl,
-        aspectRatio: "1:1",
-        aspectMode: "cover",
-        size: "full",
-        backgroundColor: "#eaffea",
-        action: {
-          type: "postback",
-          label: "action",
-          data: `CAPTCHA_${num}_${allStatus}_UUID`,
-          displayText: "A",
-        },
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "image",
+            url: options.imageUrl,
+            aspectRatio: "1:1",
+            aspectMode: "cover",
+            size: "full",
+            backgroundColor: "#eaffea",
+            action: {
+              type: "postback",
+              label: "action",
+              data: `CAPTCHA_${num}_${allStatus}_UUID`,
+              displayText: "A",
+            },
+          },
+        ],
+        cornerRadius: "xl",
       },
     ],
     cornerRadius: current === "0" ? "none" : "xxl",

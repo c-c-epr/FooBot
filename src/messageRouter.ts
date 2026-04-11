@@ -49,7 +49,7 @@ export default async function messageRouter(
             captchaOptions[1],
           ];
           const uuid = await generateCaptchaAuthor();
-          const contents = captchaFlexContents(Options, "000000000", uuid);
+          const contents = captchaFlexContents(Options, { uuid });
           console.log("Generated CAPTCHA contents", { contents });
           await sendMessage(channelAccessToken, event.replyToken, [
             {

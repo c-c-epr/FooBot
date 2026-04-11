@@ -1,15 +1,21 @@
 import { CaptchaOptions9, captchaOption } from "./type";
 
+type CaptchaFlexState = {
+  uuid?: string;
+  status?: string;
+};
+
 export function captchaFlexContentOption(
   options: captchaOption,
   num: number,
-  uuid: string = "",
-  allStatus: string = "000000000",
-  count: number = 0,
+  state: CaptchaFlexState = {},
 ) {
+  const uuid = state.uuid ?? "";
+  const allStatus = state.status ?? "000000000";
   const current = allStatus[num];
   const flipped = String(1 - Number(allStatus[num]));
-  allStatus = allStatus.slice(0, num) + flipped + allStatus.slice(num + 1);
+  const nextStatus =
+    allStatus.slice(0, num) + flipped + allStatus.slice(num + 1);
 
   return {
     type: "box",
@@ -29,7 +35,7 @@ export function captchaFlexContentOption(
             action: {
               type: "postback",
               label: "action",
-              data: `CAPTCHA_${num}_${allStatus}_${uuid}`,
+              data: `CAPTCHA_${num}_${nextStatus}_${uuid}`,
               displayText: "A",
             },
           },
@@ -66,9 +72,13 @@ function bodyHelper(contents: any) {
 
 export function captchaFlexContents(
   options: CaptchaOptions9,
-  status = "000000000",
-  uuid = "",
+  state: CaptchaFlexState = {},
 ) {
+  const captchaState: CaptchaFlexState = {
+    status: state.status ?? "000000000",
+    uuid: state.uuid ?? "",
+  };
+
   return {
     type: "bubble",
     header: {
@@ -85,23 +95,19 @@ export function captchaFlexContents(
     body: {
       type: "box",
       layout: "vertical",
-      contents: [
-        bodyHelper([
-          captchaFlexContentOption(options[0], 0, uuid, status),
-          captchaFlexContentOption(options[1], 1, uuid, status),
-          captchaFlexContentOption(options[2], 2, uuid, status),
-        ]),
-        bodyHelper([
-          captchaFlexContentOption(options[3], 3, uuid, status),
-          captchaFlexContentOption(options[4], 4, uuid, status),
-          captchaFlexContentOption(options[5], 5, uuid, status),
-        ]),
-        bodyHelper([
-          captchaFlexContentOption(options[6], 6, uuid, status),
-          captchaFlexContentOption(options[7], 7, uuid, status),
-          captchaFlexContentOption(options[8], 8, uuid, status),
-        ]),
-      ],
+      contents: [0, 3, 6].map((startIndex) =>
+        bodyHelper(
+          options
+            .slice(startIndex, startIndex + 3)
+            .map((option, offset) =>
+              captchaFlexContentOption(
+                option,
+                startIndex + offset,
+                captchaState,
+              ),
+            ),
+        ),
+      ),
     },
     styles: {
       header: {

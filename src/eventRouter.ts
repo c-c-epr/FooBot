@@ -39,6 +39,13 @@ export async function eventRouter(
       const postbackData = event.postback.data.split("_");
       switch (postbackData[0]) {
         case "CAPTCHA":
+          if (postbackData.length < 4) {
+            console.warn("Invalid CAPTCHA postback data", {
+              postbackData,
+              event,
+            });
+            break;
+          }
           const status = postbackData[2];
           const uuid = postbackData[3];
           const Options: CaptchaOptions9 = [

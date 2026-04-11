@@ -1,5 +1,7 @@
 # FooBot
 
+Language: English | [繁體中文](README.zh-TW.md)
+
 ## Scripts
 
 - `npm run dev`: auto syncs `worker-configuration.d.ts` via `wrangler types` before `wrangler dev`.

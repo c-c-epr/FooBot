@@ -4,7 +4,7 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "@line/bot-sdk": "^10.8.0",
+    "@line/bot-sdk": "^11.0.0",
     "uuid": "^13.0.0",
     "wrangler": "^4.81.1"
   }

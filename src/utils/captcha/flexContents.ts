@@ -29,9 +29,9 @@ export function captchaFlexContentOption(
         },
       },
     ],
-    cornerRadius: current === "0" ? "xxl" : "none",
-    borderWidth: current === "0" ? "semi-bold" : "none",
-    backgroundColor: "#15b000",
+    cornerRadius: current === "0" ? "none" : "xxl",
+    borderWidth: current === "0" ? "none" : "semi-bold",
+    backgroundColor: current === "0" ? "#ffffff" : "#15b000",
   };
 }
 

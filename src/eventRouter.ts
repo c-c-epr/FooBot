@@ -49,6 +49,12 @@ export async function eventRouter(
             captchaOptions[0],
             captchaOptions[1],
           ];
+          const contents = captchaFlexContents(
+            Options,
+            event.postback.data.split("_")[2],
+            event.postback.data.split("_")[3],
+          );
+          console.log("Generated CAPTCHA contents", { contents });
           await sendMessage(channelAccessToken, event.replyToken, [
             {
               type: "text",
@@ -57,11 +63,7 @@ export async function eventRouter(
             {
               type: "flex",
               altText: "請找出全部包含 小福 的圖片",
-              contents: captchaFlexContents(
-                Options,
-                event.postback.data.split("_")[2],
-                event.postback.data.split("_")[3],
-              ),
+              contents: contents,
             },
           ]);
           break;

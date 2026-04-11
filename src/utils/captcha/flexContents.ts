@@ -3,8 +3,9 @@ import { CaptchaOptions9, captchaOption } from "./type";
 export function captchaFlexContentOption(
   options: captchaOption,
   num: number,
-  status: "0" | "1" = "0",
+  uuid: string = "",
   allStatus: string = "000000000",
+  count: number = 0,
 ) {
   const current = allStatus[num];
   const flipped = String(1 - Number(allStatus[num]));
@@ -28,7 +29,7 @@ export function captchaFlexContentOption(
             action: {
               type: "postback",
               label: "action",
-              data: `CAPTCHA_${num}_${allStatus}_UUID`,
+              data: `CAPTCHA_${num}_${allStatus}_${uuid}`,
               displayText: "A",
             },
           },
@@ -86,64 +87,19 @@ export function captchaFlexContents(
       layout: "vertical",
       contents: [
         bodyHelper([
-          captchaFlexContentOption(
-            options[0],
-            0,
-            status[0] as "0" | "1",
-            status,
-          ),
-          captchaFlexContentOption(
-            options[1],
-            1,
-            status[1] as "0" | "1",
-            status,
-          ),
-          captchaFlexContentOption(
-            options[2],
-            2,
-            status[2] as "0" | "1",
-            status,
-          ),
+          captchaFlexContentOption(options[0], 0, uuid, status),
+          captchaFlexContentOption(options[1], 1, uuid, status),
+          captchaFlexContentOption(options[2], 2, uuid, status),
         ]),
         bodyHelper([
-          captchaFlexContentOption(
-            options[3],
-            3,
-            status[3] as "0" | "1",
-            status,
-          ),
-          captchaFlexContentOption(
-            options[4],
-            4,
-            status[4] as "0" | "1",
-            status,
-          ),
-          captchaFlexContentOption(
-            options[5],
-            5,
-            status[5] as "0" | "1",
-            status,
-          ),
+          captchaFlexContentOption(options[3], 3, uuid, status),
+          captchaFlexContentOption(options[4], 4, uuid, status),
+          captchaFlexContentOption(options[5], 5, uuid, status),
         ]),
         bodyHelper([
-          captchaFlexContentOption(
-            options[6],
-            6,
-            status[6] as "0" | "1",
-            status,
-          ),
-          captchaFlexContentOption(
-            options[7],
-            7,
-            status[7] as "0" | "1",
-            status,
-          ),
-          captchaFlexContentOption(
-            options[8],
-            8,
-            status[8] as "0" | "1",
-            status,
-          ),
+          captchaFlexContentOption(options[6], 6, uuid, status),
+          captchaFlexContentOption(options[7], 7, uuid, status),
+          captchaFlexContentOption(options[8], 8, uuid, status),
         ]),
       ],
     },

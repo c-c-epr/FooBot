@@ -39,8 +39,8 @@ export async function eventRouter(
       const postbackData = event.postback.data.split("_");
       switch (postbackData[0]) {
         case "CAPTCHA":
-          const status = postbackData[2] ?? "000000000";
-          const uuid = postbackData[3] ?? "";
+          const status = postbackData[2];
+          const uuid = postbackData[3];
           const Options: CaptchaOptions9 = [
             captchaOptions[1],
             captchaOptions[0],

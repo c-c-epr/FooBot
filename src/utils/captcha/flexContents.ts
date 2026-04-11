@@ -6,6 +6,7 @@ export function captchaFlexContentOption(
   status: "0" | "1" = "0",
   allStatus: string = "000000000",
 ) {
+  const current = allStatus[num];
   const flipped = String(1 - Number(allStatus[num]));
   allStatus = allStatus.slice(0, num) + flipped + allStatus.slice(num + 1);
 
@@ -28,8 +29,9 @@ export function captchaFlexContentOption(
         },
       },
     ],
-    cornerRadius: flipped === "1" ? "xxl" : "none",
-    borderWidth: "none",
+    cornerRadius: current === "0" ? "xxl" : "none",
+    borderWidth: current === "0" ? "semi-bold" : "none",
+    backgroundColor: "#15b000",
   };
 }
 

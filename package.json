@@ -4,6 +4,6 @@
   },
   "dependencies": {
     "@line/bot-sdk": "^11.0.0",
-    "wrangler": "^4.79.0"
+    "wrangler": "^4.81.1"
   }
 }

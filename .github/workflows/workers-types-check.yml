@@ -27,5 +27,8 @@ jobs:
       - name: Verify generated worker types are up to date
         run: npm run types:check
 
+      - name: Prettier format check
+        run: npm run format:check
+
       - name: Type check
         run: npm run typecheck

@@ -3,6 +3,7 @@ import { sendMessage, markAsRead, loadStart } from "./utils/eventRoutes";
 import { captchaFlexContents } from "./utils/captcha/flexContents";
 import { CaptchaOptions9 } from "./utils/captcha/type";
 import { captchaOptions } from "./utils/captcha/options";
+import { generateCaptchaAuthor } from "./utils/captcha/Auth";
 
 export default async function messageRouter(
   event: any,
@@ -47,11 +48,12 @@ export default async function messageRouter(
             captchaOptions[0],
             captchaOptions[1],
           ];
+          const uuid = await generateCaptchaAuthor();
           await sendMessage(channelAccessToken, event.replyToken, [
             {
               type: "flex",
               altText: "請找出全部包含 小福 的圖片",
-              contents: captchaFlexContents(Options),
+              contents: captchaFlexContents(Options, "000000000", uuid),
             },
           ]);
           break;

@@ -59,7 +59,8 @@ export async function eventRouter(
               altText: "請找出全部包含 小福 的圖片",
               contents: captchaFlexContents(
                 Options,
-                event.postback.data.split("_")[1].split(".")[1],
+                event.postback.data.split("_")[2],
+                event.postback.data.split("_")[3],
               ),
             },
           ]);

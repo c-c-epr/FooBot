@@ -19,7 +19,7 @@ export function captchaFlexContentOption(
     action: {
       type: "postback",
       label: "action",
-      data: `CAPTCHA_${num}.${allStatus}`,
+      data: `CAPTCHA_${num}_${allStatus}_UUID`,
       displayText: "A",
     },
   };
@@ -49,6 +49,7 @@ function bodyHelper(contents: any) {
 export function captchaFlexContents(
   options: CaptchaOptions9,
   status = "000000000",
+  uuid = "",
 ) {
   return {
     type: "bubble",

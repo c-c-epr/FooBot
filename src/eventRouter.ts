@@ -52,7 +52,7 @@ export async function eventRouter(
           await sendMessage(channelAccessToken, event.replyToken, [
             {
               type: "text",
-              text: `!CAPTCHA 回傳資料: ${JSON.stringify(event.postback.data.split("_")[1])}`,
+              text: `!CAPTCHA 回傳資料: ${JSON.stringify(event.postback.data.split("_", 2)[1])}`,
             },
             {
               type: "flex",

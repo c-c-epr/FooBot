@@ -3,7 +3,7 @@ import { sendMessage, markAsRead, loadStart } from "./utils/eventRoutes";
 import { captchaFlexContents } from "./utils/captcha/flexContents";
 import { CaptchaOptions9 } from "./utils/captcha/type";
 import { captchaOptions } from "./utils/captcha/options";
-import { generateCaptchaAuthor } from "./utils/captcha/Auth";
+import { generateCaptchaAuthor } from "./utils/captcha/auth";
 
 export default async function messageRouter(
   event: any,

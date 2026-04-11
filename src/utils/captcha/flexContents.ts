@@ -10,18 +10,26 @@ export function captchaFlexContentOption(
   allStatus = allStatus.slice(0, num) + flipped + allStatus.slice(num + 1);
 
   return {
-    type: "image",
-    url: options.imageUrl,
-    aspectRatio: "1:1",
-    aspectMode: "cover",
-    size: "full",
-    backgroundColor: "#eaffea",
-    action: {
-      type: "postback",
-      label: "action",
-      data: `CAPTCHA_${num}_${allStatus}_UUID`,
-      displayText: "A",
-    },
+    type: "box",
+    layout: "horizontal",
+    contents: [
+      {
+        type: "image",
+        url: options.imageUrl,
+        aspectRatio: "1:1",
+        aspectMode: "cover",
+        size: "full",
+        backgroundColor: "#eaffea",
+        action: {
+          type: "postback",
+          label: "action",
+          data: `CAPTCHA_${num}_${allStatus}_UUID`,
+          displayText: "A",
+        },
+      },
+    ],
+    cornerRadius: flipped === "1" ? "xxl" : "none",
+    borderWidth: "none",
   };
 }
 

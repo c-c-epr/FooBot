@@ -49,11 +49,13 @@ export default async function messageRouter(
             captchaOptions[1],
           ];
           const uuid = await generateCaptchaAuthor();
+          const contents = captchaFlexContents(Options, "000000000", uuid);
+          console.log("Generated CAPTCHA contents", { contents });
           await sendMessage(channelAccessToken, event.replyToken, [
             {
               type: "flex",
               altText: "請找出全部包含 小福 的圖片",
-              contents: captchaFlexContents(Options, "000000000", uuid),
+              contents: contents,
             },
           ]);
           break;

@@ -33,7 +33,7 @@ export function captchaFlexContentOption(
             },
           },
         ],
-        cornerRadius: "xl",
+        cornerRadius: current === "0" ? "none" : "xl",
       },
     ],
     cornerRadius: current === "0" ? "none" : "xxl",

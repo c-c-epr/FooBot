@@ -1,4 +1,3 @@
-import type { ExecutionContext } from "@cloudflare/workers-types";
 import { sendMessage, markAsRead, loadStart } from "./utils/eventRoutes";
 import { captchaFlexContents } from "./utils/captcha/flexContents";
 import { CaptchaOptions9 } from "./utils/captcha/type";

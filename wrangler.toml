@@ -16,16 +16,9 @@ id = "f502ef723ad641c88374eb86c14129cd"
 mode = "smart"
 
 [observability]
-enabled = false
-head_sampling_rate = 1
-
 [observability.logs]
 enabled = true
-head_sampling_rate = 1
-persist = true
 invocation_logs = true
 
 [observability.traces]
 enabled = true
-persist = true
-head_sampling_rate = 1

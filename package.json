@@ -17,6 +17,6 @@
   "dependencies": {
     "@line/bot-sdk": "^11.0.0",
     "uuid": "^14.0.0",
-    "wrangler": "^4.83.0"
+    "wrangler": "^4.84.1"
   }
 }

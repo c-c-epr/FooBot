@@ -12,7 +12,7 @@
     "predeploy": "npm run types:sync"
   },
   "devDependencies": {
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.4",
     "typescript": "^6.0.3",
     "wrangler": "^4.102.0"
   },
